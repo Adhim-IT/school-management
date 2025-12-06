@@ -10,7 +10,6 @@ class KelasIndex extends Component
 {
     use WithPagination;
     public $search = '';
-    protected $paginationTheme = 'tailwind';
     protected $listeners = ['delete' => 'deleteKelas'];
     public $showAlert = false;
     public $alertMessage = '';
