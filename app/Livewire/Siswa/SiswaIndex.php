@@ -10,11 +10,12 @@ class SiswaIndex extends Component
 {
 
     use WithPagination;
-
     public $search = '';
     public $detailItem = null;
-
     protected $listeners = ['delete' => 'delete'];
+    public $showAlert = false;
+    public $alertMessage = '';
+
 
     public function updatingSearch()
     {
@@ -35,7 +36,9 @@ class SiswaIndex extends Component
    public function delete($id)
     {
         Siswa::findOrFail($id)->delete();
-        session()->flash('success', 'siswa berhasil dihapus.');
+        $this->showAlert = true;
+        $this->alertMessage = 'siswa berhasil dihapus.';
+        $this->resetPage();
     }
     public function render()
     {

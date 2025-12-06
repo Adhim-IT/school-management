@@ -16,10 +16,14 @@
 
     <input type="text" wire:model.live="search" placeholder="Cari kelas..." class="w-full md:w-64 p-2 border rounded">
 
-    @if (session('success'))
-        <div x-data="{ show: true }" x-init="setTimeout(() => show = false, 2000)" x-show="show"
-            x-transition.opacity.duration.500ms class="bg-green-500 text-white px-4 py-2 rounded">
-            {{ session('success') }}
+   @if ($showAlert)
+        <div 
+            x-data="{ show: true }" 
+            x-init="setTimeout(() => { show = false; @this.set('showAlert', false) }, 3000)" 
+            x-show="show"
+            x-transition.opacity.duration.500ms 
+            class="bg-green-500 text-white px-4 py-2 rounded">
+            {{ $alertMessage }}
         </div>
     @endif
 

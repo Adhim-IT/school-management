@@ -11,18 +11,21 @@ class GuruIndex extends Component
     use WithPagination;
     public $search = '';
     public $detailItem = null;
-
     protected $listeners = ['delete' => 'deleteGuru'];
+    public $showAlert = false;
+    public $alertMessage = '';
 
     public function updatingSearch()
     {
         $this->resetPage();
     }
 
-    public function deleteGuru($data)
+    public function deleteGuru($id)
     {
-        Guru::find($data['id'])->delete();
-        session()->flash('success', 'Guru berhasil dihapus.');
+        Guru::findOrFail($id)->delete();
+        $this->showAlert = true;
+        $this->alertMessage = 'Guru berhasil dihapus.';
+        $this->resetPage();
     }
     public function showDetail($id)
     {

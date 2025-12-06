@@ -9,20 +9,23 @@ use App\Models\Kelas;
 class KelasIndex extends Component
 {
     use WithPagination;
-
-     public $search = '';
-
+    public $search = '';
     protected $paginationTheme = 'tailwind';
-    
+    protected $listeners = ['delete' => 'deleteKelas'];
+    public $showAlert = false;
+    public $alertMessage = '';
+
     public function updatingSearch()
     {
         $this->resetPage();
     }
 
-   public function delete($id)
+   public function deleteKelas($id)
     {
         Kelas::findOrFail($id)->delete();
-        session()->flash('success', 'Kelas berhasil dihapus.');
+        $this->showAlert = true;
+        $this->alertMessage = 'Kelas berhasil dihapus.';
+        $this->resetPage();
     }
 
     public function render()
