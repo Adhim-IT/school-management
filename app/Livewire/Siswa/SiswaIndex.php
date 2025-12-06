@@ -12,7 +12,7 @@ class SiswaIndex extends Component
     use WithPagination;
     public $search = '';
     public $detailItem = null;
-    protected $listeners = ['delete' => 'delete'];
+    protected $listeners = ['delete' => 'deleteSiswa'];
     public $showAlert = false;
     public $alertMessage = '';
 
@@ -33,7 +33,7 @@ class SiswaIndex extends Component
         $this->detailItem = null;
     }
 
-   public function delete($id)
+   public function deleteSiswa($id)
     {
         Siswa::findOrFail($id)->delete();
         $this->showAlert = true;
