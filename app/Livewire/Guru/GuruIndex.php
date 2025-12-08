@@ -38,7 +38,6 @@ class GuruIndex extends Component
     }
     public function render()
     {
-
         $guru = Guru::where('nama', 'like', "%{$this->search}%")
             ->orWhere('nip', 'like', "%{$this->search}%")
             ->paginate(10);
