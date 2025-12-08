@@ -27,14 +27,4 @@ class Kelas extends Model
         return $this->hasMany(Guru::class, 'kelas_id');
     }
 
-
-    public function getNamaLengkapAttribute()
-    {
-        return "{$this->nama_kelas} - {$this->tahun_ajaran}";
-    }
-
-    public function scopeTahunAjaran($query, $tahun)
-    {
-        return $query->where('tahun_ajaran', $tahun);
-    }
 }
