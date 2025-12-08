@@ -16,11 +16,19 @@ class Siswa extends Model
         'kelas_id',
         'jenis_kelamin',
         'alamat',
+        'ortu_id',
     ];
 
     public function kelas()
     {
         return $this->belongsTo(Kelas::class, 'kelas_id');
     }
+
+    public function ortu()
+    {
+        return $this->belongsTo(Ortu::class, 'ortu_id');
+    }
+
+}
 
    

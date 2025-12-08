@@ -13,6 +13,9 @@ use App\Livewire\Kelas\KelasIndex;
 use App\Livewire\Laporan\DataLengkap;
 use App\Livewire\Laporan\GuruPerKelas;
 use App\Livewire\Laporan\SiswaPerKelas;
+use App\Livewire\Ortu\OrtuCreate;
+use App\Livewire\Ortu\OrtuEdit;
+use App\Livewire\Ortu\OrtuIndex;
 use App\Livewire\Siswa\SiswaCreate;
 use App\Livewire\Siswa\SiswaEdit;
 use App\Livewire\Siswa\SiswaIndex;
@@ -66,4 +69,11 @@ Route::prefix('laporan')->group(function () {
         ->name('laporan.guru-per-kelas');
     Route::get('/data-lengkap', DataLengkap::class)
         ->name('laporan.data-lengkap');
+});
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/ortu', OrtuIndex::class)->name('ortu.index');
+    Route::get('/ortu/create', OrtuCreate::class)->name('ortu.create');
+    Route::get('/ortu/{id}/edit', OrtuEdit::class)->name('ortu.edit');
 });

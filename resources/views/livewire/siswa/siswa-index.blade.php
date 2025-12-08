@@ -35,6 +35,7 @@
                     <tr class="text-left">
                         <th class="p-3">Nama</th>
                         <th class="p-3">Kelas</th>
+                        <th class="p-3">Orang Tua</th>
                         <th class="p-3">Kelamin</th>
                         <th class="p-3 text-center">Aksi</th>
                     </tr>
@@ -44,6 +45,7 @@
                         <tr class="border-t hover:bg-gray-50">
                             <td class="p-3">{{ $s->nama }}</td>
                             <td class="p-3">{{ $s->kelas->nama_kelas }}</td>
+                            <td class="p-3">{{ $s->ortu->nama_ortu }}</td>
                             <td class="p-3">{{ $s->jenis_kelamin }}</td>
                             <td class="p-3">
                                 <div class="flex justify-center gap-2">
@@ -82,6 +84,7 @@
                         <div>
                             <h3 class="font-semibold text-lg">{{ $s->nama }}</h3>
                             <p class="text-sm text-gray-600">{{ $s->kelas->nama_kelas }}</p>
+                            <p class="text-sm text-gray-600">{{ $s->ortu->nama_ortu }}</p>
                             <p class="text-sm text-gray-600">{{ $s->jenis_kelamin }}</p>
                         </div>
                     </div>
@@ -118,6 +121,7 @@
                 <p><b>NIS:</b> {{ $detailItem->nis }}</p>
                 <p><b>Nama:</b> {{ $detailItem->nama }}</p>
                 <p><b>Kelas:</b> {{ $detailItem->kelas->nama_kelas }}</p>
+                <p><b>Orang Tua:</b> {{ $s->ortu->nama_ortu }}</p>
                 <p><b>Jenis Kelamin:</b> {{ $detailItem->jenis_kelamin }}</p>
 
                 <button wire:click="closeDetail" class="w-full mt-3 px-4 py-2 bg-gray-700 text-white rounded">

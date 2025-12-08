@@ -25,6 +25,16 @@
             </select>
             @error('kelas_id') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
         </div>
+        <div>
+            <label>Orang Tua</label>
+            <select wire:model="ortu_id" class="w-full p-2 border rounded">
+                <option value="">-- Pilih Orang Tua --</option>
+                @foreach ($ortu as $o)
+                    <option value="{{ $o->id }}">{{ $o->nama_ortu }}</option>
+                @endforeach
+            </select>
+            @error('ortu_id') <p class="text-red-500 text-sm">{{ $message }}</p> @enderror
+        </div>
 
         <div>
             <label>Jenis Kelamin</label>

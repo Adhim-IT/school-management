@@ -55,6 +55,7 @@ class SiswaSeeder extends Seeder
                     'kelas_id' => $kelasId,
                     'jenis_kelamin' => $jenisKelamin,
                     'alamat' => $alamat[array_rand($alamat)],
+                    'ortu_id' => rand(1, 12),
                 ]);
             }
         }

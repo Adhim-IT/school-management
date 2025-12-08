@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ortu;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             KelasSeeder::class,
+            OrtuSeeder::class,
             SiswaSeeder::class,
             GuruSeeder::class,
         ]);   

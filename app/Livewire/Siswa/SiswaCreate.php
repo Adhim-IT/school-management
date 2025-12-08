@@ -3,12 +3,13 @@
 namespace App\Livewire\Siswa;
 
 use App\Models\Kelas;
+use App\Models\Ortu;
 use App\Models\Siswa;
 use Livewire\Component;
 
 class SiswaCreate extends Component
 {
-    public $nis, $nama, $kelas_id, $jenis_kelamin, $alamat;
+    public $nis, $nama, $kelas_id, $jenis_kelamin, $alamat, $ortu_id;
 
     public function save()
     {
@@ -16,6 +17,7 @@ class SiswaCreate extends Component
             'nis' => 'required|unique:siswas,nis',
             'nama' => 'required|min:3',
             'kelas_id' => 'required',
+            'ortu_id'=> 'required',
             'jenis_kelamin' => 'required',
         ]);
 
@@ -23,6 +25,7 @@ class SiswaCreate extends Component
             'nis' => $this->nis,
             'nama' => $this->nama,
             'kelas_id' => $this->kelas_id,
+            'ortu_id'=> $this->ortu_id,
             'jenis_kelamin' => $this->jenis_kelamin,
             'alamat' => $this->alamat,
         ]);
@@ -35,6 +38,7 @@ class SiswaCreate extends Component
     {
         return view('livewire.siswa.siswa-create', [
             'kelas' => Kelas::all(),
+            'ortu' => Ortu::all(),
         ]);
     }
 }
